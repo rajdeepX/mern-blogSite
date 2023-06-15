@@ -1,0 +1,58 @@
+.post-page .image {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 30px 0;
+  max-height: 300px;
+}
+
+.post-page .image img {
+  object-fit: cover;
+}
+
+.post-page .content {
+  line-height: 1.75rem;
+}
+
+.post-page .author {
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+.post-page .content a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.post-page .time {
+  font-size: 0.75rem;
+  color: #888;
+  margin: -5px 0;
+}
+
+.post-page .content p {
+  display: flex;
+  width: 100%;
+}
+.post-page .content img {
+  margin: 0 auto;
+}
+
+.edit {
+  background-color: #888;
+  margin: 15px 0;
+  width: fit-content;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 5px;
+}
+.edit-btn {
+  color: #fff;
+  font-size: 0.75rem;
+}
+
+.edit svg {
+  width: 20px;
+  color: #fff;
+}
