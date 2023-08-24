@@ -8,7 +8,6 @@ const Homepage = () => {
   const fetchPosts = async () => {
     const response = await fetch("http://localhost:3000/post");
     const postData = await response.json();
-    // console.log(postData[0].title);
     setPosts(postData);
   };
 
@@ -18,7 +17,6 @@ const Homepage = () => {
 
   return (
     <>
-      {/* <h2>Hello {userInfo}</h2> */}
       <Navbar />
       {posts.length > 0 &&
         posts.map((post) => {

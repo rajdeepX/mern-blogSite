@@ -29,25 +29,42 @@ const Navbar = () => {
   const username = userInfo?.username;
 
   return (
-    <header>
-      <Link to={"/"} className="logo">
-        blogSite
-      </Link>
-      <nav>
-        {username ? (
-          <>
-            <span style={{ fontWeight: "bold" }}>Hello, {username}</span>
-            <Link to={"/create"}>Create New Post</Link>
-            <Link onClick={logout}>Logout</Link>
-          </>
-        ) : (
-          <>
-            <Link to={"/login"}>Login</Link>
-            <Link to={"/register"}>Register</Link>
-          </>
-        )}
-      </nav>
-    </header>
+    <>
+      <header>
+        <Link to={"/"} className="logo">
+          blogSite
+        </Link>
+        <nav>
+          {username ? (
+            <>
+              <span style={{ fontWeight: "bold" }}>Hello, {username}</span>
+              <Link to={"/create"}>Create New Post</Link>
+              <Link onClick={logout}>Logout</Link>
+            </>
+          ) : (
+            <>
+              <Link to={"/login"}>Login</Link>
+              <Link to={"/register"}>Register</Link>
+            </>
+          )}
+        </nav>
+      </header>
+      {username ? (
+        ""
+      ) : (
+        <p
+          style={{
+            width: "100%",
+            margin: "20px auto 40px",
+            textAlign: "center",
+            fontWeight: "bold",
+            fontSize: "14px",
+          }}
+        >
+          Hello Visitor! Kindly register first to create a new post :)
+        </p>
+      )}
+    </>
   );
 };
 

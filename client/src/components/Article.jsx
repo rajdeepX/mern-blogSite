@@ -1,5 +1,6 @@
 import { formatISO9075 } from "date-fns";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import "./Article.css";
 
 const Article = ({ _id, title, summary, createdAt, image, author }) => {
@@ -25,3 +26,12 @@ const Article = ({ _id, title, summary, createdAt, image, author }) => {
 };
 
 export default Article;
+
+Article.propTypes = {
+  _id: PropTypes.string,
+  title: PropTypes.string,
+  summary: PropTypes.string,
+  createdAt: PropTypes.string,
+  image: PropTypes.string,
+  author: PropTypes.string,
+};
