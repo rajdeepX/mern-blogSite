@@ -2,12 +2,13 @@ import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CustomContext from "../CustomContext";
 import "./Navbar.css";
+import { BASE_URL } from "../App";
 
 const Navbar = () => {
   const { setUserInfo, userInfo } = useContext(CustomContext);
 
   const fetchProfile = async () => {
-    const response = await fetch("http://localhost:3000/profile", {
+    const response = await fetch(`${BASE_URL}/profile`, {
       credentials: "include",
     });
     const userInfo = await response.json();
@@ -19,7 +20,7 @@ const Navbar = () => {
   }, []);
 
   const logout = () => {
-    fetch("http://localhost:3000/logout", {
+    fetch(`${BASE_URL}/logout`, {
       credentials: "include",
       method: "POST",
     });

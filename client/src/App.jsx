@@ -8,6 +8,8 @@ import PostPage from "./pages/PostPage";
 import { UserContextProvider } from "./CustomContext";
 import EditPost from "./pages/EditPost";
 
+export const BASE_URL = `https://mern-blog-backend-pqm8.onrender.com`;
+
 function App() {
   return (
     <>

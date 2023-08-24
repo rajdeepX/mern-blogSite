@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import TextEditor from "../components/TextEditor";
+import { BASE_URL } from "../App";
 
 const EditPost = () => {
   const { id } = useParams();
@@ -12,7 +13,7 @@ const EditPost = () => {
   const [redirect, setRedirect] = useState(false);
 
   const fetchEditPost = async () => {
-    const response = await fetch(`http://localhost:3000/post/${id}`);
+    const response = await fetch(`${BASE_URL}/post/${id}`);
     const postInfo = await response.json();
     setTitle(postInfo.title);
     setContent(postInfo.content);

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import TextEditor from "../components/TextEditor";
+import { BASE_URL } from "../App";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -19,7 +20,7 @@ const CreatePost = () => {
 
     e.preventDefault();
     // console.log(files);
-    const response = await fetch("http://localhost:3000/post", {
+    const response = await fetch(`${BASE_URL}/post`, {
       method: "POST",
       body: data,
       credentials: "include",

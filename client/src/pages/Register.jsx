@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import "./Form.css";
+import { BASE_URL } from "../App";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -13,7 +14,7 @@ const Register = () => {
   };
 
   const fetchApi = async () => {
-    const response = await fetch("http://localhost:3000/register", options);
+    const response = await fetch(`${BASE_URL}/register`, options);
 
     if (response.status === 200) {
       alert("Registration Successfull!");

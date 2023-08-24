@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import { Navigate } from "react-router-dom";
 import CustomContext from "../CustomContext";
 import "./Form.css";
+import { BASE_URL } from "../App";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -18,9 +19,8 @@ const Login = () => {
   };
 
   const fetchApi = async () => {
-    const response = await fetch("http://localhost:3000/login", options);
-    // await response.json();
-    // console.log(response);
+    const response = await fetch(`${BASE_URL}/login`, options);
+
     if (response.ok) {
       const userInfo = await response.json();
       setUserInfo(userInfo);

@@ -114,8 +114,6 @@ app.post("/post", uploadFile.single('files'), async (req, res) => {
         })
 
         res.json(postDoc)
-
-        // res.json(info)
     })
 
 

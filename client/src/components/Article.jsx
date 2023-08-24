@@ -2,13 +2,14 @@ import { formatISO9075 } from "date-fns";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./Article.css";
+import { BASE_URL } from "../App";
 
 const Article = ({ _id, title, summary, createdAt, image, author }) => {
   return (
     <article>
       <div className="img">
         <Link to={`/post/${_id}`}>
-          <img src={"http://localhost:3000/" + image} alt="image" />
+          <img src={`${BASE_URL}/` + image} alt="image" />
         </Link>
       </div>
       <div className="text">

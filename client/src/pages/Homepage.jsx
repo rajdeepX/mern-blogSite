@@ -1,12 +1,13 @@
 import Navbar from "../components/Navbar";
 import Article from "../components/Article";
 import { useEffect, useState } from "react";
+import { BASE_URL } from "../App";
 
 const Homepage = () => {
   const [posts, setPosts] = useState([]);
 
   const fetchPosts = async () => {
-    const response = await fetch("http://localhost:3000/post");
+    const response = await fetch(`${BASE_URL}/post`);
     const postData = await response.json();
     setPosts(postData);
   };

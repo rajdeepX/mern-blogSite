@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { formatISO9075 } from "date-fns";
 import CustomContext from "../CustomContext";
 import "./PostPage.css";
+import { BASE_URL } from "../App";
 
 const PostPage = () => {
   const [postInfo, setPostInfo] = useState(null);
@@ -13,7 +14,7 @@ const PostPage = () => {
   const { id } = useParams();
   const fetchPost = async () => {
     // console.log(id);
-    const response = await fetch(`http://localhost:3000/post/${id}`);
+    const response = await fetch(`${BASE_URL}/post/${id}`);
     const postInfo = await response.json();
     setPostInfo(postInfo);
   };
