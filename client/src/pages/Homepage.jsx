@@ -10,6 +10,7 @@ const Homepage = () => {
     const response = await fetch(`${BASE_URL}/post`);
     const postData = await response.json();
     setPosts(postData);
+    console.log(postData);
   };
 
   useEffect(() => {
