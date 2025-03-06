@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 
-export const CustomContext = createContext();
+export const UserContext = createContext();
 
 // const UserContext = ({ children }) => {
 //   const [userInfo, setUserInfo] = useState(null);
@@ -13,10 +13,10 @@ export const CustomContext = createContext();
 export const UserContextProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState({});
   return (
-    <CustomContext.Provider value={{ userInfo, setUserInfo }}>
+    <UserContext.Provider value={{ userInfo, setUserInfo }}>
       {children}
-    </CustomContext.Provider>
+    </UserContext.Provider>
   );
 };
 
-export default CustomContext;
+export default UserContext;

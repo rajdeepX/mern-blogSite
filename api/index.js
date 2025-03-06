@@ -18,7 +18,12 @@ const salt = bcrypt.genSaltSync(10);
 
 
 
-app.use(cors())
+// app.use(cors())
+app.use(cors({
+    origin: "http://localhost:5173", // Change this to your frontend URL in production
+    credentials: true, // Allow cookies and authentication headers
+}));
+
 app.use(express.json())
 app.use(cookieParser())
 app.use("/uploads", express.static(__dirname + "/uploads"))
@@ -59,14 +64,14 @@ app.post("/login", async (req, res) => {
         const passOk = bcrypt.compareSync(password, userDoc.password);
 
         if (passOk) {
-            // user logged in
             jwt.sign({ username, id: userDoc._id }, secret, {}, (err, token) => {
                 if (err) throw err;
-                res.cookie("token", token).json({
-                    id: userDoc._id,
-                    username,
-                })
-            })
+                res.cookie("token", token, {
+                    httpOnly: true,
+                    secure: true, // ✅ Required for HTTPS
+                    sameSite: "None", // ✅ Required for cross-origin requests
+                }).json({ id: userDoc._id, username });
+            });
         }
         else {
             res.status(400).json("wrong credentials")
