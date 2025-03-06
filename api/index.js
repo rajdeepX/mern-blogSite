@@ -19,10 +19,12 @@ const salt = bcrypt.genSaltSync(10);
 
 
 // app.use(cors())
-app.use(cors({
-    origin: "http://localhost:5173", // Change this to your frontend URL in production
-    credentials: true, // Allow cookies and authentication headers
-}));
+app.use(
+    cors({
+      origin: ["http://localhost:5173", "https://blogsite-mern-blog.onrender.com"],
+      credentials: true,
+    })
+  );
 
 app.use(express.json())
 app.use(cookieParser())
